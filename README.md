@@ -1,6 +1,6 @@
 # 312 Wrap Co. — 312wrapco.com
 
-Live site for 312 Wrap Co. (Arlington Heights, IL), hosted on GitHub Pages.
+Live site for 312 Wrap Co. (Itasca, IL), hosted on GitHub Pages.
 
 ## How it works
 
