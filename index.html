@@ -64,6 +64,21 @@ html{scroll-behavior:smooth}
 .stars{display:flex;gap:.42rem;align-items:center}
 .stars svg{width:15px;height:15px;fill:var(--red);flex:none}
 
+/* ---------- featured project ---------- */
+.feat{display:grid;gap:2rem;align-items:start}
+@media (min-width:900px){.feat{grid-template-columns:.92fr 1.08fr;gap:3.2rem;align-items:center}}
+.feat-hero{border:1px solid var(--line);border-radius:3px;overflow:hidden;background:var(--panel);box-shadow:var(--shadow)}
+.feat-hero img{display:block;width:100%;height:auto}
+.feat-copy{display:grid;gap:1rem}
+.feat-copy p{color:var(--mute);max-width:56ch}
+.feat-thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-top:.4rem}
+.feat-thumbs figure{margin:0;border:1px solid var(--line);border-radius:3px;overflow:hidden;background:var(--panel)}
+.feat-thumbs img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+
+/* ---------- photo gallery cards ---------- */
+.photo-card img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.photo-card.tall img{aspect-ratio:3/4}
+
 /* ---------- nav ---------- */
 .nav{position:sticky;top:0;z-index:50;background:var(--glass);backdrop-filter:blur(14px);
   border-bottom:1px solid var(--line)}
@@ -257,7 +272,7 @@ html{scroll-behavior:smooth}
     <ul class="nav-links mono">
       <li><a href="#services">Services</a></li>
       <li><a href="#process">Process</a></li>
-      <li><a href="#fleet">Fleet</a></li>
+      <li><a href="#work">Work</a></li>
       <li><a href="#quote">Contact</a></li>
     </ul>
     <a class="nav-tel mono" href="tel:+13312186222">331 &middot; 218 &middot; 6222</a>
@@ -275,7 +290,7 @@ html{scroll-behavior:smooth}
       no franchise markup.</p>
     <div class="hero-cta">
       <a class="btn btn-red" href="#quote">Start a wrap</a>
-      <a class="btn btn-line" href="#fleet">See what we wrap</a>
+      <a class="btn btn-line" href="#work">See recent installs</a>
     </div>
 
     <figure class="reveal" style="margin-block:2.4rem 0">
@@ -368,12 +383,39 @@ html{scroll-behavior:smooth}
       <span class="strip-item"><b>ISA</b> Member Shop</span>
       <span class="strip-item"><b>12+</b> Years Installing</span>
       <span class="strip-item"><b>50</b> States Covered</span>
+      <span class="strip-item">Wrapped for <b>CardVault by Tom Brady</b></span>
+      <span class="strip-item">Wrapped for <b>Liquid Death</b></span>
+      <span class="strip-item">Wrapped for <b>Jet's Pizza</b></span>
+      <span class="strip-item">Wrapped for <b>Dunkin'</b></span>
+      <span class="strip-item">Wrapped for <b>Mattex</b></span>
       <span class="strip-item"><b>Cast</b> Vinyl &amp; Overlaminate Only</span>
     </div>
   </div>
 </section>
 
-<section class="sec" id="services">
+<section class="sec" id="work">
+  <div class="wrap feat">
+    <figure class="feat-hero" style="margin:0">
+      <img src="images/cardvault-brady-tall.jpg" width="1050" height="1400" alt="Curved interior column wrapped in a Tom Brady comic-style mural at CardVault by Tom Brady" loading="lazy" decoding="async"/>
+    </figure>
+    <div class="feat-copy">
+      <p class="mono eyebrow">Featured install</p>
+      <h2>CardVault by&nbsp;Tom&nbsp;Brady</h2>
+      <p>Full interior graphics package for the sports-card retailer's Chicagoland store —
+        a floor-to-ceiling card-collage feature wall, wrapped display columns, and a curved
+        Brady mural that follows the architecture instead of fighting it.</p>
+      <p>Printed, laminated and installed by our own crew: compound curves, seams landed
+        off sight-lines, zero bubbles under retail lighting.</p>
+      <div class="feat-thumbs">
+        <figure><img src="images/cardvault-wall-wide.jpg" alt="Card-collage feature wall behind the register at CardVault" loading="lazy" decoding="async"/></figure>
+        <figure><img src="images/cardvault-brady-curve.jpg" alt="Curved wall mid-install showing the Brady mural following the radius" loading="lazy" decoding="async"/></figure>
+        <figure><img src="images/cardvault-install.jpg" alt="312 Wrap Co. installer finishing panel edges on site" loading="lazy" decoding="async"/></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="services" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head">
       <p class="mono eyebrow">What we do</p>
@@ -460,75 +502,34 @@ html{scroll-behavior:smooth}
     <div class="sec-head">
       <p class="mono eyebrow">What rolls through the bay</p>
       <h2>If it has panels, we have wrapped it.</h2>
+      <p>Shot on our installs, not stock — vans, storefronts, trailers and store interiors.</p>
     </div>
     <div class="fleet">
-      <article class="fleet-card">
-        <svg viewBox="0 0 300 160" role="img" aria-label="High-roof cargo van in 312 livery">
-          <defs><clipPath id="cl-van"><path d="M28 118 L27 86 C26 76 32 71 42 69 L66 46 L82 28 C85 24 90 22 96 22 L262 22 C270 22 274 26 274 34 L274 116 L250 116 A22 22 0 0 0 206 116 L96 116 A22 22 0 0 0 52 116 Z"/></clipPath></defs>
-          <line x1="0" y1="139" x2="300" y2="139" stroke="var(--line)" stroke-width="1.5"/>
-          <path d="M28 118 L27 86 C26 76 32 71 42 69 L66 46 L82 28 C85 24 90 22 96 22 L262 22 C270 22 274 26 274 34 L274 116 L250 116 A22 22 0 0 0 206 116 L96 116 A22 22 0 0 0 52 116 Z" fill="var(--disc)"/>
-          <g clip-path="url(#cl-van)">
-            <path d="M188 170 L248 -10 L310 -10 L310 170 Z" fill="var(--char)"/>
-            <path d="M166 170 L226 -10 L246 -10 L186 170 Z" fill="var(--red)"/>
-            <text x="54" y="100" fill="var(--char)" style="font-family:Archivo,sans-serif;font-variation-settings:'wdth' 110,'wght' 900;font-size:42px;letter-spacing:-1.5px">312</text>
-          </g>
-          <g fill="#1B2026"><path d="M64 68 L80 38 L118 38 L118 68 Z"/><rect x="126" y="38" width="46" height="30" rx="3"/></g>
-          <path d="M28 118 L27 86 C26 76 32 71 42 69 L66 46 L82 28 C85 24 90 22 96 22 L262 22 C270 22 274 26 274 34 L274 116 L250 116 A22 22 0 0 0 206 116 L96 116 A22 22 0 0 0 52 116 Z" fill="none" stroke="var(--van-line)" stroke-width="2.2" stroke-linejoin="round"/>
-          <circle cx="74" cy="116" r="20" fill="#1C2128" stroke="var(--van-line)" stroke-width="2"/><circle cx="74" cy="116" r="8" fill="var(--van-line)"/>
-          <circle cx="228" cy="116" r="20" fill="#1C2128" stroke="var(--van-line)" stroke-width="2"/><circle cx="228" cy="116" r="8" fill="var(--van-line)"/>
-        </svg>
-        <div class="fleet-meta"><h3>Cargo &amp; sprinter vans</h3><span class="mono">Full wrap</span></div>
+      <article class="fleet-card photo-card">
+        <img src="images/liquid-death-side.jpg" alt="Liquid Death cargo van, full print wrap, side view" loading="lazy" decoding="async"/>
+        <div class="fleet-meta"><h3>Liquid Death &middot; ProMaster</h3><span class="mono">Full print wrap</span></div>
       </article>
-      <article class="fleet-card">
-        <svg viewBox="0 0 300 160" role="img" aria-label="Box truck in 312 livery">
-          <defs><clipPath id="cl-box"><path d="M20 116 L20 74 L58 74 L58 50 L88 50 L100 74 L100 116 Z M100 26 L278 26 L278 116 L100 116 Z"/></clipPath></defs>
-          <line x1="0" y1="139" x2="300" y2="139" stroke="var(--line)" stroke-width="1.5"/>
-          <path d="M20 116 L20 74 L58 74 L58 50 L88 50 L100 74 L100 116 Z M100 26 L278 26 L278 116 L100 116 Z" fill="var(--disc)"/>
-          <g clip-path="url(#cl-box)">
-            <path d="M188 170 L248 -10 L310 -10 L310 170 Z" fill="var(--char)"/>
-            <path d="M166 170 L226 -10 L246 -10 L186 170 Z" fill="var(--red)"/>
-            <text x="106" y="94" fill="var(--char)" style="font-family:Archivo,sans-serif;font-variation-settings:'wdth' 110,'wght' 900;font-size:38px;letter-spacing:-1.5px">312</text>
-          </g>
-          <g fill="#1B2026"><rect x="61" y="54" width="22" height="18" rx="2"/></g>
-          <path d="M20 116 L20 74 L58 74 L58 50 L88 50 L100 74 L100 116 Z M100 26 L278 26 L278 116 L100 116 Z" fill="none" stroke="var(--van-line)" stroke-width="2.2" stroke-linejoin="round"/>
-          <circle cx="52" cy="116" r="18" fill="#1C2128" stroke="var(--van-line)" stroke-width="2"/><circle cx="52" cy="116" r="8" fill="var(--van-line)"/>
-          <circle cx="232" cy="116" r="18" fill="#1C2128" stroke="var(--van-line)" stroke-width="2"/><circle cx="232" cy="116" r="8" fill="var(--van-line)"/>
-        </svg>
-        <div class="fleet-meta"><h3>Box trucks &amp; trailers</h3><span class="mono">Fleet rollout</span></div>
+      <article class="fleet-card photo-card">
+        <img src="images/jets-pizza.jpg" alt="Jet's Pizza storefront with full window graphics package" loading="lazy" decoding="async"/>
+        <div class="fleet-meta"><h3>Jet's Pizza &middot; storefront</h3><span class="mono">Window graphics</span></div>
       </article>
-      <article class="fleet-card">
-        <svg viewBox="0 0 300 160" role="img" aria-label="Sedan with a 312 color-change wrap">
-          <defs><clipPath id="cl-car"><path d="M26 110 L24 92 C24 84 31 80 41 78 L76 52 C84 46 92 44 104 44 L182 44 C196 44 206 48 214 56 L240 78 C254 80 262 86 264 94 L264 110 L240 110 A20 20 0 0 0 200 110 L96 110 A20 20 0 0 0 56 110 Z"/></clipPath></defs>
-          <line x1="0" y1="139" x2="300" y2="139" stroke="var(--line)" stroke-width="1.5"/>
-          <path d="M26 110 L24 92 C24 84 31 80 41 78 L76 52 C84 46 92 44 104 44 L182 44 C196 44 206 48 214 56 L240 78 C254 80 262 86 264 94 L264 110 L240 110 A20 20 0 0 0 200 110 L96 110 A20 20 0 0 0 56 110 Z" fill="var(--disc)"/>
-          <g clip-path="url(#cl-car)">
-            <path d="M188 170 L248 -10 L310 -10 L310 170 Z" fill="var(--char)"/>
-            <path d="M166 170 L226 -10 L246 -10 L186 170 Z" fill="var(--red)"/>
-          </g>
-          <g fill="#1B2026"><path d="M84 76 L106 54 L140 54 L140 76 Z"/><path d="M150 76 L150 54 L182 54 L202 76 Z"/></g>
-          <path d="M26 110 L24 92 C24 84 31 80 41 78 L76 52 C84 46 92 44 104 44 L182 44 C196 44 206 48 214 56 L240 78 C254 80 262 86 264 94 L264 110 L240 110 A20 20 0 0 0 200 110 L96 110 A20 20 0 0 0 56 110 Z" fill="none" stroke="var(--van-line)" stroke-width="2.2" stroke-linejoin="round"/>
-          <circle cx="76" cy="110" r="19" fill="#1C2128" stroke="var(--van-line)" stroke-width="2"/><circle cx="76" cy="110" r="8" fill="var(--van-line)"/>
-          <circle cx="220" cy="110" r="19" fill="#1C2128" stroke="var(--van-line)" stroke-width="2"/><circle cx="220" cy="110" r="8" fill="var(--van-line)"/>
-        </svg>
-        <div class="fleet-meta"><h3>Cars &amp; SUVs</h3><span class="mono">Color change</span></div>
+      <article class="fleet-card photo-card">
+        <img src="images/dunkin.jpg" alt="Dunkin' drive-thru with printed window graphics" loading="lazy" decoding="async"/>
+        <div class="fleet-meta"><h3>Dunkin' &middot; drive-thru</h3><span class="mono">Window graphics</span></div>
       </article>
-      <article class="fleet-card">
-        <svg viewBox="0 0 300 160" role="img" aria-label="Tradeshow booth in 312 graphics">
-          <defs><clipPath id="cl-booth"><path d="M26 24 L274 24 L274 118 L26 118 Z"/></clipPath></defs>
-          <line x1="0" y1="139" x2="300" y2="139" stroke="var(--line)" stroke-width="1.5"/>
-          <path d="M26 24 L274 24 L274 118 L26 118 Z" fill="var(--disc)"/>
-          <g clip-path="url(#cl-booth)">
-            <path d="M188 170 L248 -10 L310 -10 L310 170 Z" fill="var(--char)"/>
-            <path d="M166 170 L226 -10 L246 -10 L186 170 Z" fill="var(--red)"/>
-            <text x="44" y="92" fill="var(--char)" style="font-family:Archivo,sans-serif;font-variation-settings:'wdth' 110,'wght' 900;font-size:46px;letter-spacing:-1.5px">312</text>
-            <g fill="var(--red)"><use href="#star" x="46" y="100" width="15" height="15"/><use href="#star" x="68" y="100" width="15" height="15"/><use href="#star" x="90" y="100" width="15" height="15"/></g>
-          </g>
-          <path d="M26 24 L274 24 L274 118 L26 118 Z" fill="none" stroke="var(--van-line)" stroke-width="2.2" stroke-linejoin="round"/>
-        </svg>
-        <div class="fleet-meta"><h3>Booths &amp; exhibits</h3><span class="mono">On-site install</span></div>
+      <article class="fleet-card photo-card">
+        <img src="images/mattex-van.jpg" alt="Mattex service van with printed fleet branding, rear three-quarter view" loading="lazy" decoding="async"/>
+        <div class="fleet-meta"><h3>Mattex &middot; Transit fleet</h3><span class="mono">Fleet branding</span></div>
+      </article>
+      <article class="fleet-card photo-card">
+        <img src="images/liquid-death-front.jpg" alt="Liquid Death van front three-quarter view on delivery route" loading="lazy" decoding="async"/>
+        <div class="fleet-meta"><h3>Liquid Death &middot; detail</h3><span class="mono">Full print wrap</span></div>
+      </article>
+      <article class="fleet-card photo-card">
+        <img src="images/glace-trailer.jpg" alt="Glace trailer wrap in progress inside the shop bay" loading="lazy" decoding="async"/>
+        <div class="fleet-meta"><h3>Glac&eacute; &middot; trailer</h3><span class="mono">In the bay</span></div>
       </article>
     </div>
-  </div>
 </section>
 
 <section class="sec" style="padding-top:0">
@@ -587,7 +588,7 @@ html{scroll-behavior:smooth}
         <div class="field"><label class="mono" for="f-msg">Details</label>
           <textarea id="f-msg" name="details" placeholder="How many vehicles, do you have artwork already, and when do you need it on the road?"></textarea></div>
         <button class="btn btn-red" type="submit">Send it over</button>
-        <p class="note" style="margin-top:.9rem">Opens your email app addressed to 312wrapco@gmail.com. In a hurry, call or text <a href="tel:+13312186222">(331)&nbsp;218-6222</a>.</p>
+        <p class="note" style="margin-top:.9rem">Opens your email app addressed to info@312wrapco.com. In a hurry, call or text <a href="tel:+13312186222">(331)&nbsp;218-6222</a>.</p>
       </form>
     </div>
 
@@ -648,7 +649,7 @@ html{scroll-behavior:smooth}
     var d = new FormData(form), g = function(k){ return (d.get(k) || '').toString().trim(); };
     var body = ['Name: '+g('name'),'Company: '+g('company'),'Email: '+g('email'),
       'Phone: '+g('phone'),'Vehicle: '+g('vehicle'),'Job type: '+g('job'),'',g('details')].join('\n');
-    window.location.href = 'mailto:312wrapco@gmail.com'
+    window.location.href = 'mailto:info@312wrapco.com'
       + '?subject=' + encodeURIComponent('Wrap quote request - ' + (g('name') || 'website'))
       + '&body=' + encodeURIComponent(body);
   });

@@ -1,0 +1,661 @@
+<title>312 Wrap Co. &mdash; Vehicle Wraps &amp; Fleet Graphics | Chicagoland</title>
+<style>
+@font-face{font-family:"Archivo";src:url(data:font/woff2;base64,__ARCHIVO__) format("woff2-variations");font-weight:100 900;font-stretch:62% 125%;font-display:swap}
+@font-face{font-family:"PlexMono";src:url(data:font/woff2;base64,__PLEX__) format("woff2");font-weight:500;font-display:swap}
+
+/* ---- LIGHT PALETTE (bare :root = complete set) ---- */
+:root{
+  --ink:#EAEEF2; --panel:#FFFFFF; --panel-2:#F3F6F9; --line:#D2DBE3;
+  --bone:#12151A; --mute:#5B6875; --faint:#5F6D7B;
+  --sky:#287398; --sky-soft:#B4D5E4; --sky-glow:rgba(40,115,152,.14);
+  --red:#C41623; --char:#22252A;
+  --disc:#B4D5E4; --disc-hi:#DCEBF3;
+  --glass:rgba(255,255,255,.72); --shadow:0 1px 2px rgba(18,21,26,.06),0 8px 28px rgba(18,21,26,.07);
+  --van-body:#FCFDFE; --van-line:#A8B5C1; --van-glass:#8FA3B2;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ink:#0B0D10; --panel:#14171C; --panel-2:#191D23; --line:#252B34;
+    --bone:#EEF1F4; --mute:#96A2AE; --faint:#798691;
+    --sky:#8FC6E0; --sky-soft:#B4D5E4; --sky-glow:rgba(143,198,224,.16);
+    --red:#E12D3C; --char:#0B0D10;
+    --disc:#B4D5E4; --disc-hi:#E4F1F7;
+    --glass:rgba(20,23,28,.72); --shadow:0 1px 2px rgba(0,0,0,.5),0 18px 44px rgba(0,0,0,.55);
+    --van-body:#E9EDF1; --van-line:#7C8894; --van-glass:#39424C;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#0B0D10; --panel:#14171C; --panel-2:#191D23; --line:#252B34;
+  --bone:#EEF1F4; --mute:#96A2AE; --faint:#798691;
+  --sky:#8FC6E0; --sky-soft:#B4D5E4; --sky-glow:rgba(143,198,224,.16);
+  --red:#E12D3C; --char:#0B0D10;
+  --disc:#B4D5E4; --disc-hi:#E4F1F7;
+  --glass:rgba(20,23,28,.72); --shadow:0 1px 2px rgba(0,0,0,.5),0 18px 44px rgba(0,0,0,.55);
+  --van-body:#E9EDF1; --van-line:#7C8894; --van-glass:#39424C;
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--ink);color:var(--bone);
+  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-variation-settings:"wdth" 100,"wght" 400;
+  font-size:16.5px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+.wrap{width:min(1180px,100% - 2.5rem);margin-inline:auto}
+.lede{max-width:64ch}
+
+h1,h2,h3{margin:0;text-wrap:balance;font-variation-settings:"wdth" 118,"wght" 860;
+  text-transform:uppercase;letter-spacing:-.014em;line-height:.93}
+h1{font-size:clamp(2.45rem,6.3vw,4.85rem)}
+h2{font-size:clamp(1.9rem,4.1vw,3.1rem)}
+h3{font-size:1.06rem;font-variation-settings:"wdth" 108,"wght" 780;letter-spacing:.005em;line-height:1.2}
+p{margin:0}
+
+.mono{font-family:"PlexMono",ui-monospace,"SF Mono",Menlo,monospace;font-weight:500;
+  text-transform:uppercase;letter-spacing:.145em;font-size:.685rem}
+.eyebrow{color:var(--sky);display:flex;align-items:center;gap:.7rem}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--red);flex:none}
+
+a{color:var(--sky);text-underline-offset:3px}
+:focus-visible{outline:2.5px solid var(--sky);outline-offset:3px;border-radius:3px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+html{scroll-behavior:smooth}
+
+/* ---------- star device (Chicago flag, 6-pointed) ---------- */
+.stars{display:flex;gap:.42rem;align-items:center}
+.stars svg{width:15px;height:15px;fill:var(--red);flex:none}
+
+/* ---------- featured project ---------- */
+.feat{display:grid;gap:2rem;align-items:start}
+@media (min-width:900px){.feat{grid-template-columns:.92fr 1.08fr;gap:3.2rem;align-items:center}}
+.feat-hero{border:1px solid var(--line);border-radius:3px;overflow:hidden;background:var(--panel);box-shadow:var(--shadow)}
+.feat-hero img{display:block;width:100%;height:auto}
+.feat-copy{display:grid;gap:1rem}
+.feat-copy p{color:var(--mute);max-width:56ch}
+.feat-thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-top:.4rem}
+.feat-thumbs figure{margin:0;border:1px solid var(--line);border-radius:3px;overflow:hidden;background:var(--panel)}
+.feat-thumbs img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+
+/* ---------- photo gallery cards ---------- */
+.photo-card img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.photo-card.tall img{aspect-ratio:3/4}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:50;background:var(--glass);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;gap:1.5rem;padding:.72rem 0;min-height:64px}
+.brand{display:flex;align-items:center;gap:.68rem;text-decoration:none;color:var(--bone);margin-right:auto}
+.brand svg{width:38px;height:44px;flex:none}
+.brand b{font-variation-settings:"wdth" 115,"wght" 860;text-transform:uppercase;
+  font-size:1.03rem;letter-spacing:-.01em;line-height:1;display:block}
+.brand span{color:var(--faint);display:block;margin-top:2px}
+.nav-links{display:flex;gap:1.7rem;list-style:none;margin:0;padding:0}
+.nav-links a{color:var(--mute);text-decoration:none}
+.nav-links a:hover{color:var(--bone)}
+@media (max-width:880px){.nav-links{display:none}}
+.nav-tel{color:var(--bone);text-decoration:none;white-space:nowrap}
+.nav-tel:hover{color:var(--sky)}
+@media (max-width:700px){.nav-tel{display:none}}
+
+.btn{display:inline-flex;align-items:center;gap:.55rem;padding:.82rem 1.35rem;border-radius:2px;
+  text-decoration:none;border:1.5px solid transparent;cursor:pointer;white-space:nowrap;
+  font-family:"PlexMono",ui-monospace,monospace;font-weight:500;text-transform:uppercase;
+  letter-spacing:.13em;font-size:.685rem;transition:transform .16s,background .16s,color .16s}
+.btn-solid{background:var(--sky);color:var(--ink)}
+.btn-solid:hover{transform:translateY(-2px)}
+.btn-line{border-color:var(--line);color:var(--bone)}
+.btn-line:hover{border-color:var(--sky);color:var(--sky)}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{transform:translateY(-2px)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:clamp(2.4rem,4.6vw,4rem) 0 0;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:-30% 0 auto -10%;height:70%;pointer-events:none;
+  background:radial-gradient(58% 60% at 22% 30%,var(--sky-glow),transparent 70%)}
+.hero-in{position:relative;display:grid;gap:1.4rem}
+.hero h1{max-width:19ch}
+.hero h1 em{font-style:normal;color:var(--sky);position:relative}
+.hero-sub{color:var(--mute);font-size:clamp(1rem,1.6vw,1.16rem);max-width:52ch}
+.hero-cta{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:.5rem}
+
+/* squeegee sweep across the headline, once on load */
+.sweep{position:relative;display:inline-block}
+.sweep::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(105deg,transparent 38%,rgba(255,255,255,.55) 50%,transparent 62%);
+  background-size:280% 100%;background-position:180% 0;mix-blend-mode:overlay;
+  animation:squeegee 1.5s cubic-bezier(.3,0,.2,1) .35s 1 both}
+@keyframes squeegee{from{background-position:180% 0}to{background-position:-90% 0}}
+
+/* ---------- reveal widget ---------- */
+.reveal{position:relative;margin-top:2.4rem;border:1px solid var(--line);border-radius:3px;
+  background:var(--panel-2);box-shadow:var(--shadow);overflow:hidden;touch-action:pan-y}
+.reveal-stage{position:relative;display:block;width:100%}
+.reveal svg{display:block;width:100%;height:auto}
+.reveal-top{position:absolute;inset:0}
+.reveal-bar{position:absolute;top:0;bottom:0;width:2px;background:var(--sky);
+  transform:translateX(-1px);pointer-events:none;box-shadow:0 0 14px var(--sky-glow)}
+.reveal-knob{position:absolute;top:50%;left:50%;translate:-50% -50%;width:46px;height:46px;
+  border-radius:50%;background:var(--sky);color:var(--ink);display:grid;place-items:center;
+  box-shadow:0 4px 18px rgba(0,0,0,.35);pointer-events:none}
+.reveal-knob svg{width:20px;height:20px;fill:currentColor}
+.reveal input[type=range]{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;
+  cursor:ew-resize;-webkit-appearance:none;appearance:none;background:transparent}
+.reveal input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:52px;height:220px}
+.reveal input[type=range]::-moz-range-thumb{width:52px;height:220px;border:0;opacity:0}
+.reveal:has(input:focus-visible){outline:2.5px solid var(--sky);outline-offset:3px}
+.reveal-tag{position:absolute;bottom:.85rem;color:var(--faint);pointer-events:none}
+.reveal-tag.l{left:1rem}
+.reveal-tag.r{right:1rem;color:var(--sky)}
+
+/* ---------- marquee trust strip ---------- */
+.strip{margin-top:2.6rem;border-block:1px solid var(--line);background:var(--panel-2);overflow:hidden}
+.strip-track{display:flex;gap:2.6rem;padding:.95rem 0;width:max-content;animation:slide 34s linear infinite}
+.strip:hover .strip-track{animation-play-state:paused}
+@keyframes slide{to{transform:translateX(-50%)}}
+.strip-item{display:flex;align-items:center;gap:.7rem;color:var(--mute);white-space:nowrap}
+.strip-item b{color:var(--bone);font-weight:inherit}
+
+/* ---------- generic section ---------- */
+.sec{padding:clamp(4rem,9vw,7rem) 0}
+.sec-head{display:grid;gap:1rem;margin-bottom:2.8rem;max-width:60ch}
+.sec-head p{color:var(--mute)}
+
+/* ---------- services ---------- */
+.svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:3px;overflow:hidden}
+.svc-card{background:var(--panel);padding:1.9rem 1.7rem;display:grid;gap:.7rem;align-content:start;
+  transition:background .18s}
+.svc-card:hover{background:var(--panel-2)}
+.svc-card .n{color:var(--sky)}
+.svc-card p{color:var(--mute);font-size:.94rem}
+.svc-icon{width:34px;height:34px;stroke:var(--sky);fill:none;stroke-width:1.6;
+  stroke-linecap:round;stroke-linejoin:round;margin-bottom:.3rem}
+
+/* ---------- process ---------- */
+.steps{display:grid;gap:0;border-top:1px solid var(--line)}
+.step{display:grid;grid-template-columns:auto 1fr;gap:1.6rem;padding:1.7rem 0;
+  border-bottom:1px solid var(--line);align-items:baseline}
+.step-n{font-family:"PlexMono",monospace;font-weight:500;color:var(--sky);font-size:.8rem;
+  letter-spacing:.1em;padding-top:.25rem}
+.step-b{display:grid;gap:.45rem}
+.step-b p{color:var(--mute);max-width:62ch;font-size:.96rem}
+@media (min-width:900px){.step{grid-template-columns:5rem 19rem 1fr;gap:2.2rem}
+  .step-b{display:contents}.step-b h3{align-self:baseline}}
+
+/* ---------- stats ---------- */
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:3px;overflow:hidden}
+.stat{background:var(--panel);padding:1.8rem 1.4rem;display:grid;gap:.35rem}
+.stat b{font-variation-settings:"wdth" 120,"wght" 880;font-size:clamp(2.2rem,5vw,3.2rem);
+  line-height:.9;color:var(--sky);font-weight:400;font-variant-numeric:tabular-nums}
+.stat span{color:var(--faint)}
+@media (min-width:820px){.stats{grid-template-columns:repeat(4,1fr)}}
+
+/* ---------- fleet gallery ---------- */
+.fleet{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem}
+.fleet-card{border:1px solid var(--line);border-radius:3px;background:var(--panel);overflow:hidden;
+  transition:border-color .18s,transform .18s}
+.fleet-card:hover{border-color:var(--sky);transform:translateY(-3px)}
+.fleet-card svg{display:block;width:100%;height:auto;background:var(--panel-2)}
+.fleet-meta{padding:.95rem 1.1rem;display:flex;justify-content:space-between;gap:1rem;align-items:center}
+.fleet-meta span{color:var(--faint)}
+
+/* ---------- quote ---------- */
+.quote-blk{border:1px solid var(--line);border-radius:3px;background:var(--panel);
+  padding:clamp(1.8rem,4vw,3rem);display:grid;gap:1.6rem;box-shadow:var(--shadow)}
+.quote-blk blockquote{margin:0;font-size:clamp(1.25rem,2.7vw,1.85rem);line-height:1.34;
+  font-variation-settings:"wdth" 104,"wght" 520;text-wrap:balance}
+.quote-blk cite{font-style:normal;color:var(--faint);display:flex;align-items:center;gap:.7rem}
+
+/* ---------- contact ---------- */
+.contact{display:grid;gap:2.4rem;grid-template-columns:1fr;align-items:start}
+@media (min-width:900px){.contact{grid-template-columns:1.05fr .95fr;gap:4rem}}
+.field{display:grid;gap:.45rem;margin-bottom:1rem}
+.field label{color:var(--faint)}
+.field input,.field select,.field textarea{width:100%;padding:.8rem .9rem;background:var(--panel-2);
+  color:var(--bone);border:1px solid var(--line);border-radius:2px;font:inherit;font-size:.95rem}
+.field textarea{resize:vertical;min-height:104px}
+.row2{display:grid;gap:1rem;grid-template-columns:1fr 1fr}
+@media (max-width:560px){.row2{grid-template-columns:1fr}}
+.info-list{display:grid;gap:1.3rem;list-style:none;margin:0;padding:0}
+.info-list li{display:grid;gap:.3rem;padding-bottom:1.3rem;border-bottom:1px solid var(--line)}
+.info-list li:last-child{border-bottom:0;padding-bottom:0}
+.info-list b{font-weight:inherit;font-variation-settings:"wght" 560;font-size:1.02rem}
+.info-list a{text-decoration:none}
+.info-list a:hover{text-decoration:underline}
+.note{color:var(--faint);font-size:.8rem;line-height:1.5}
+
+/* ---------- footer ---------- */
+.foot{border-top:1px solid var(--line);background:var(--panel);padding:2.6rem 0 2rem;margin-top:1rem}
+.foot-in{display:flex;flex-wrap:wrap;gap:1.4rem;align-items:center;justify-content:space-between}
+.foot small{color:var(--faint);font-size:.8rem}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="star" viewBox="-11 -11 22 22">
+    <polygon points="0,-10 2.1,-3.64 8.66,-5 4.2,0 8.66,5 2.1,3.64 0,10 -2.1,3.64 -8.66,5 -4.2,0 -8.66,-5 -2.1,-3.64"/>
+  </symbol>
+  <symbol id="badge" viewBox="0 0 220 256">
+    <g>
+      <path d="M110 16 l5 11 5-11-4 15h-2z" fill="var(--red)"/>
+      <path d="M56 92 q-4-38 6-52 l14 26 12-30 16 28 16-28 12 30 14-26 q10 14 6 52z"
+            fill="var(--char)" stroke="var(--disc-hi)" stroke-width="3.4" stroke-linejoin="round"/>
+      <circle cx="72" cy="52" r="4.6" fill="var(--red)"/><circle cx="94" cy="42" r="4.6" fill="var(--red)"/>
+      <circle cx="126" cy="42" r="4.6" fill="var(--red)"/><circle cx="148" cy="52" r="4.6" fill="var(--red)"/>
+      <circle cx="110" cy="32" r="6" fill="var(--red)"/>
+      <rect x="52" y="86" width="116" height="17" rx="6" fill="var(--disc)" stroke="var(--disc-hi)" stroke-width="3"/>
+      <circle cx="74" cy="94.5" r="3.6" fill="var(--red)"/><circle cx="92" cy="94.5" r="3.6" fill="var(--red)"/>
+      <circle cx="110" cy="94.5" r="3.6" fill="var(--red)"/><circle cx="128" cy="94.5" r="3.6" fill="var(--red)"/>
+      <circle cx="146" cy="94.5" r="3.6" fill="var(--red)"/>
+    </g>
+    <circle cx="110" cy="164" r="82" fill="var(--disc)"/>
+    <circle cx="110" cy="164" r="82" fill="none" stroke="var(--disc-hi)" stroke-width="5"/>
+    <text x="110" y="176" text-anchor="middle" fill="var(--char)"
+      style="font-family:Archivo,sans-serif;font-variation-settings:'wdth' 92,'wght' 900;font-size:104px;letter-spacing:-3px"
+      stroke="var(--disc-hi)" stroke-width="6" paint-order="stroke">312</text>
+    <g fill="var(--red)">
+      <use href="#star" x="66"  y="200" width="21" height="21"/>
+      <use href="#star" x="88"  y="200" width="21" height="21"/>
+      <use href="#star" x="110" y="200" width="21" height="21"/>
+      <use href="#star" x="132" y="200" width="21" height="21"/>
+    </g>
+    <text x="110" y="234" text-anchor="middle" fill="var(--char)" opacity=".72"
+      style="font-family:Archivo,sans-serif;font-variation-settings:'wght' 700;font-size:19px;letter-spacing:2.6px">WRAP CO.</text>
+  </symbol>
+</defs></svg>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top">
+      <svg viewBox="0 0 220 256" aria-hidden="true"><use href="#badge"/></svg>
+      <span><b>312 Wrap Co.</b><span class="mono">Arlington Heights, IL</span></span>
+    </a>
+    <ul class="nav-links mono">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#quote">Contact</a></li>
+    </ul>
+    <a class="nav-tel mono" href="tel:+13312186222">331 &middot; 218 &middot; 6222</a>
+    <a class="btn btn-solid" href="#quote">Get a quote</a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap hero-in">
+    <p class="mono eyebrow">3M Preferred Installer &nbsp;&middot;&nbsp; Geek Wraps Certified</p>
+    <h1>Your fleet is the <em class="sweep">biggest billboard</em> you already own.</h1>
+    <p class="hero-sub">312 Wrap Co. designs, prints and installs vehicle wraps, fleet graphics and
+      event signage out of Arlington Heights &mdash; and installs nationwide. Twelve years of squeegee time,
+      no franchise markup.</p>
+    <div class="hero-cta">
+      <a class="btn btn-red" href="#quote">Start a wrap</a>
+      <a class="btn btn-line" href="#work">See recent installs</a>
+    </div>
+
+    <figure class="reveal" style="margin-block:2.4rem 0">
+      <div class="reveal-stage">
+        <svg viewBox="0 0 820 330" role="img" aria-label="A cargo van shown unwrapped on the left and wrapped in 312 Wrap Co. livery on the right. Drag to compare.">
+          <defs>
+            <clipPath id="revealClip"><rect id="revealRect" x="410" y="0" width="410" height="330"/></clipPath>
+            <linearGradient id="gloss" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#fff" stop-opacity=".30"/>
+              <stop offset=".45" stop-color="#fff" stop-opacity=".04"/>
+              <stop offset="1" stop-color="#000" stop-opacity=".12"/>
+            </linearGradient>
+            <path id="vanBody" d="M40 252 L38 214 C36 195 45 187 58 183 L98 149 L130 74
+              C134 64 142 58 154 58 L744 58 C756 58 763 65 763 77 L763 248 L706 248
+              A50 50 0 0 0 606 248 L206 248 A50 50 0 0 0 106 248 Z"/>
+          </defs>
+
+          <!-- shop floor -->
+          <rect x="0" y="0" width="820" height="330" fill="var(--panel-2)"/>
+          <line x1="0" y1="286" x2="820" y2="286" stroke="var(--line)" stroke-width="1.5"/>
+
+          <!-- PLAIN van -->
+          <g>
+            <use href="#vanBody" fill="var(--van-body)" stroke="var(--van-line)" stroke-width="2.4"/>
+            <path d="M150 150 L176 92 C178 84 184 80 192 80 L300 80 L300 150 Z" fill="var(--van-glass)" opacity=".85"/>
+            <rect x="316" y="80" width="86" height="70" rx="5" fill="var(--van-glass)" opacity=".85"/>
+            <use href="#vanBody" fill="url(#gloss)"/>
+          </g>
+
+          <!-- WRAPPED van (clipped by the reveal) -->
+          <g clip-path="url(#revealClip)">
+            <use href="#vanBody" fill="var(--disc)"/>
+            <clipPath id="bodyClip"><use href="#vanBody"/></clipPath>
+            <g clip-path="url(#bodyClip)">
+              <path d="M330 330 L520 40 L820 40 L820 330 Z" fill="var(--char)" opacity=".95"/>
+              <path d="M286 330 L476 40 L512 40 L322 330 Z" fill="var(--red)"/>
+              <rect x="0" y="224" width="820" height="23" fill="#F2F4F7"/>
+              <g fill="var(--red)">
+                <use href="#star" x="56" y="226" width="20" height="20"/>
+                <use href="#star" x="140" y="226" width="20" height="20"/>
+                <use href="#star" x="224" y="226" width="20" height="20"/>
+                <use href="#star" x="308" y="226" width="20" height="20"/>
+                <use href="#star" x="392" y="226" width="20" height="20"/>
+                <use href="#star" x="476" y="226" width="20" height="20"/>
+                <use href="#star" x="560" y="226" width="20" height="20"/>
+                <use href="#star" x="644" y="226" width="20" height="20"/>
+                <use href="#star" x="728" y="226" width="20" height="20"/>
+              </g>
+              <text x="424" y="180" fill="var(--disc)"
+                style="font-family:Archivo,sans-serif;font-variation-settings:'wdth' 112,'wght' 900;font-size:104px;letter-spacing:-3px">312</text>
+              <text x="430" y="212" fill="#F2F4F7"
+                style="font-family:Archivo,sans-serif;font-variation-settings:'wdth' 108,'wght' 760;font-size:26px;letter-spacing:3.2px">WRAP CO.</text>
+              <text x="68" y="200" fill="var(--char)"
+                style="font-family:Archivo,sans-serif;font-variation-settings:'wdth' 108,'wght' 780;font-size:24px;letter-spacing:.4px">312WRAPCO.COM</text>
+            </g>
+            <path d="M150 150 L176 92 C178 84 184 80 192 80 L300 80 L300 150 Z" fill="#1B2026" opacity=".93"/>
+            <rect x="316" y="80" width="86" height="70" rx="5" fill="#1B2026" opacity=".93"/>
+            <use href="#vanBody" fill="url(#gloss)"/>
+            <use href="#vanBody" fill="none" stroke="var(--van-line)" stroke-width="2.4"/>
+          </g>
+
+          <!-- wheels sit above both -->
+          <g>
+            <circle cx="156" cy="248" r="44" fill="#1C2128" stroke="var(--van-line)" stroke-width="2.5"/>
+            <circle cx="156" cy="248" r="19" fill="var(--van-line)"/>
+            <circle cx="156" cy="248" r="7.5" fill="#1C2128"/>
+            <circle cx="656" cy="248" r="44" fill="#1C2128" stroke="var(--van-line)" stroke-width="2.5"/>
+            <circle cx="656" cy="248" r="19" fill="var(--van-line)"/>
+            <circle cx="656" cy="248" r="7.5" fill="#1C2128"/>
+          </g>
+        </svg>
+        <div class="reveal-top">
+          <div class="reveal-bar" id="revealBar" style="left:50%"></div>
+          <div class="reveal-knob" id="revealKnob" style="left:50%">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6 4 12l5 6zM15 6l5 6-5 6z"/></svg>
+          </div>
+          <span class="reveal-tag l mono">Before</span>
+          <span class="reveal-tag r mono">312 Wrapped</span>
+        </div>
+        <input type="range" id="revealRange" min="0" max="100" value="50" step="0.5"
+               aria-label="Reveal the wrapped van &mdash; drag or use arrow keys"/>
+      </div>
+    </figure>
+  </div>
+
+  <div class="strip">
+    <div class="strip-track mono" id="stripTrack">
+      <span class="strip-item"><b>3M</b> Preferred Installer</span>
+      <span class="strip-item"><b>Geek Wraps</b> Certified</span>
+      <span class="strip-item"><b>ISA</b> Member Shop</span>
+      <span class="strip-item"><b>12+</b> Years Installing</span>
+      <span class="strip-item"><b>50</b> States Covered</span>
+      <span class="strip-item">Wrapped for <b>CardVault by Tom Brady</b></span>
+      <span class="strip-item">Wrapped for <b>Liquid Death</b></span>
+      <span class="strip-item">Wrapped for <b>Jet's Pizza</b></span>
+      <span class="strip-item">Wrapped for <b>Dunkin'</b></span>
+      <span class="strip-item">Wrapped for <b>Mattex</b></span>
+      <span class="strip-item"><b>Cast</b> Vinyl &amp; Overlaminate Only</span>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="work">
+  <div class="wrap feat">
+    <figure class="feat-hero" style="margin:0">
+      <img src="images/cardvault-brady-tall.jpg" width="1050" height="1400" alt="Curved interior column wrapped in a Tom Brady comic-style mural at CardVault by Tom Brady" loading="lazy" decoding="async"/>
+    </figure>
+    <div class="feat-copy">
+      <p class="mono eyebrow">Featured install</p>
+      <h2>CardVault by&nbsp;Tom&nbsp;Brady</h2>
+      <p>Full interior graphics package for the sports-card retailer's Chicagoland store —
+        a floor-to-ceiling card-collage feature wall, wrapped display columns, and a curved
+        Brady mural that follows the architecture instead of fighting it.</p>
+      <p>Printed, laminated and installed by our own crew: compound curves, seams landed
+        off sight-lines, zero bubbles under retail lighting.</p>
+      <div class="feat-thumbs">
+        <figure><img src="images/cardvault-wall-wide.jpg" alt="Card-collage feature wall behind the register at CardVault" loading="lazy" decoding="async"/></figure>
+        <figure><img src="images/cardvault-brady-curve.jpg" alt="Curved wall mid-install showing the Brady mural following the radius" loading="lazy" decoding="async"/></figure>
+        <figure><img src="images/cardvault-install.jpg" alt="312 Wrap Co. installer finishing panel edges on site" loading="lazy" decoding="async"/></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="services" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="mono eyebrow">What we do</p>
+      <h2>Print, install, remove. All of it in-house.</h2>
+      <p>Most shops sub out the install. We are the install &mdash; which is why fleet managers and
+        agencies call us to finish jobs other people started.</p>
+    </div>
+    <div class="svc">
+      <article class="svc-card">
+        <svg class="svc-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 16V9h11l4 4h5v3M2 16h20M2 16v2h3M22 16v2h-3"/><circle cx="7" cy="18" r="2.2"/><circle cx="18" cy="18" r="2.2"/></svg>
+        <h3>Fleet graphics &amp; rebranding</h3>
+        <p>Ten trucks or two hundred. Consistent templates across makes and model years, staged
+          rollouts so you never lose the whole fleet at once.</p>
+      </article>
+      <article class="svc-card">
+        <svg class="svc-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17V11l2-5h14l2 5v6M3 17h18M3 17v2h3M21 17v2h-3M6 11h12"/></svg>
+        <h3>Full &amp; partial vehicle wraps</h3>
+        <p>Sprinters, box trucks, transits, sedans, trailers. Printed on 3M cast film with
+          overlaminate so it survives a Chicago winter and a Chicago summer.</p>
+      </article>
+      <article class="svc-card">
+        <svg class="svc-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18M12 3a9 9 0 0 0 0 18M3 12h18"/></svg>
+        <h3>Color change &amp; chrome delete</h3>
+        <p>Gloss, satin, matte, brushed metallics. Fully reversible &mdash; the factory paint underneath
+          comes back exactly how it went in.</p>
+      </article>
+      <article class="svc-card">
+        <svg class="svc-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v12H4zM9 20h6M12 16v4M8 9l3 3 5-5"/></svg>
+        <h3>Event, tradeshow &amp; exhibit</h3>
+        <p>Booth panels, backdrops and floor graphics &mdash; installed and dismantled on site, on the
+          show's clock, anywhere in the country.</p>
+      </article>
+      <article class="svc-card">
+        <svg class="svc-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h18v18H3zM3 9h18M9 9v12"/></svg>
+        <h3>Wall, window &amp; floor</h3>
+        <p>Interior branding, frosted privacy film, retail window clings. The same material
+          discipline we bring to vehicles, indoors.</p>
+      </article>
+      <article class="svc-card">
+        <svg class="svc-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/><path d="M14 4 4 14M20 12l-6 6"/></svg>
+        <h3>Removal &amp; de-identification</h3>
+        <p>Lease returns and resales. Steam, heat and patience &mdash; adhesive off, clear coat intact,
+          no ghosting left behind.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="process" style="background:var(--panel-2);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="mono eyebrow">How a wrap actually happens</p>
+      <h2>Five steps, about four days.</h2>
+      <p>Every wrap runs the same sequence. Skipping any one of them is why wraps fail at
+        eighteen months instead of lasting seven years.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><span class="step-n">01</span><div class="step-b">
+        <h3>Measure &amp; template</h3>
+        <p>We photograph and measure your actual vehicle rather than trusting a stock template.
+          Rivets, door gaps, hinges and body lines all get mapped before anything is designed.</p></div></div>
+      <div class="step"><span class="step-n">02</span><div class="step-b">
+        <h3>Design &amp; proof</h3>
+        <p>Your artwork gets laid onto that template so you see where the door handle lands in your
+          logo. You approve a proof of every side before we touch a printer.</p></div></div>
+      <div class="step"><span class="step-n">03</span><div class="step-b">
+        <h3>Print &amp; laminate</h3>
+        <p>Printed on 3M cast film, then overlaminated for UV and abrasion resistance. Cast, never
+          calendered &mdash; calendered vinyl shrinks and lifts on compound curves.</p></div></div>
+      <div class="step"><span class="step-n">04</span><div class="step-b">
+        <h3>Install</h3>
+        <p>Clean bay, controlled temperature, panel by panel. Surfaces are degreased and the vehicle
+          is brought to temperature so the adhesive sets the way it is supposed to.</p></div></div>
+      <div class="step"><span class="step-n">05</span><div class="step-b">
+        <h3>Post-heat &amp; inspect</h3>
+        <p>Every recess and rivet gets post-heated so the film keeps its memory and stays down. Then
+          a walkaround, a care guide, and you drive it out.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="fleet">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="mono eyebrow">What rolls through the bay</p>
+      <h2>If it has panels, we have wrapped it.</h2>
+      <p>Shot on our installs, not stock — vans, storefronts, trailers and store interiors.</p>
+    </div>
+    <div class="fleet">
+      <article class="fleet-card photo-card">
+        <img src="images/liquid-death-side.jpg" alt="Liquid Death cargo van, full print wrap, side view" loading="lazy" decoding="async"/>
+        <div class="fleet-meta"><h3>Liquid Death &middot; ProMaster</h3><span class="mono">Full print wrap</span></div>
+      </article>
+      <article class="fleet-card photo-card">
+        <img src="images/jets-pizza.jpg" alt="Jet's Pizza storefront with full window graphics package" loading="lazy" decoding="async"/>
+        <div class="fleet-meta"><h3>Jet's Pizza &middot; storefront</h3><span class="mono">Window graphics</span></div>
+      </article>
+      <article class="fleet-card photo-card">
+        <img src="images/dunkin.jpg" alt="Dunkin' drive-thru with printed window graphics" loading="lazy" decoding="async"/>
+        <div class="fleet-meta"><h3>Dunkin' &middot; drive-thru</h3><span class="mono">Window graphics</span></div>
+      </article>
+      <article class="fleet-card photo-card">
+        <img src="images/mattex-van.jpg" alt="Mattex service van with printed fleet branding, rear three-quarter view" loading="lazy" decoding="async"/>
+        <div class="fleet-meta"><h3>Mattex &middot; Transit fleet</h3><span class="mono">Fleet branding</span></div>
+      </article>
+      <article class="fleet-card photo-card">
+        <img src="images/liquid-death-front.jpg" alt="Liquid Death van front three-quarter view on delivery route" loading="lazy" decoding="async"/>
+        <div class="fleet-meta"><h3>Liquid Death &middot; detail</h3><span class="mono">Full print wrap</span></div>
+      </article>
+      <article class="fleet-card photo-card">
+        <img src="images/glace-trailer.jpg" alt="Glace trailer wrap in progress inside the shop bay" loading="lazy" decoding="async"/>
+        <div class="fleet-meta"><h3>Glac&eacute; &middot; trailer</h3><span class="mono">In the bay</span></div>
+      </article>
+    </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat"><b>12+</b><span class="mono">Years installing</span></div>
+      <div class="stat"><b>50</b><span class="mono">States covered</span></div>
+      <div class="stat"><b>~4</b><span class="mono">Day turnaround</span></div>
+      <div class="stat"><b>3M</b><span class="mono">Preferred installer</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="quote-blk">
+      <div class="stars" aria-label="5 out of 5">
+        <svg viewBox="0 0 22 22"><use href="#star" x="0" y="0" width="22" height="22"/></svg><svg viewBox="0 0 22 22"><use href="#star" x="0" y="0" width="22" height="22"/></svg>
+        <svg viewBox="0 0 22 22"><use href="#star" x="0" y="0" width="22" height="22"/></svg><svg viewBox="0 0 22 22"><use href="#star" x="0" y="0" width="22" height="22"/></svg>
+        <svg viewBox="0 0 22 22"><use href="#star" x="0" y="0" width="22" height="22"/></svg>
+      </div>
+      <blockquote>&ldquo;Adam did a great job on my wall wraps.&rdquo;</blockquote>
+      <cite class="mono">Verified customer review</cite>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="quote" style="background:var(--panel-2);border-top:1px solid var(--line)">
+  <div class="wrap contact">
+    <div>
+      <div class="sec-head" style="margin-bottom:2rem">
+        <p class="mono eyebrow">Get a quote</p>
+        <h2>Tell us what you drive.</h2>
+        <p>Year, make, model and how much of it you want covered. We will come back with a real
+          number and a realistic date &mdash; not a range designed to get you on the phone.</p>
+      </div>
+      <form id="quoteForm">
+        <div class="row2">
+          <div class="field"><label class="mono" for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name"/></div>
+          <div class="field"><label class="mono" for="f-co">Company</label><input id="f-co" name="company" type="text" autocomplete="organization"/></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label class="mono" for="f-mail">Email</label><input id="f-mail" name="email" type="email" autocomplete="email"/></div>
+          <div class="field"><label class="mono" for="f-tel">Phone</label><input id="f-tel" name="phone" type="tel" autocomplete="tel"/></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label class="mono" for="f-veh">Vehicle / surface</label><input id="f-veh" name="vehicle" type="text" placeholder="2023 Sprinter 2500 high roof"/></div>
+          <div class="field"><label class="mono" for="f-job">Job type</label>
+            <select id="f-job" name="job">
+              <option>Full vehicle wrap</option><option>Partial wrap / decals</option>
+              <option>Fleet rebrand (multiple vehicles)</option><option>Color change</option>
+              <option>Event, tradeshow or exhibit</option><option>Wall, window or floor</option>
+              <option>Removal only</option>
+            </select></div>
+        </div>
+        <div class="field"><label class="mono" for="f-msg">Details</label>
+          <textarea id="f-msg" name="details" placeholder="How many vehicles, do you have artwork already, and when do you need it on the road?"></textarea></div>
+        <button class="btn btn-red" type="submit">Send it over</button>
+        <p class="note" style="margin-top:.9rem">Opens your email app addressed to info@312wrapco.com. In a hurry, call or text <a href="tel:+13312186222">(331)&nbsp;218-6222</a>.</p>
+      </form>
+    </div>
+
+    <aside>
+      <ul class="info-list">
+        <li><span class="mono" style="color:var(--faint)">Shop</span>
+          <b>2907 N Arlington Heights Rd</b><span style="color:var(--mute)">Arlington Heights, IL 60004</span></li>
+        <li><span class="mono" style="color:var(--faint)">Phone</span>
+          <b><a href="tel:+13312186222">(331) 218-6222</a></b><span style="color:var(--mute)">Call or text for a quote</span></li>
+        <li><span class="mono" style="color:var(--faint)">Email</span>
+          <b><a href="mailto:312wrapco@gmail.com">312wrapco@gmail.com</a></b><span style="color:var(--mute)">Send photos and artwork</span></li>
+        <li><span class="mono" style="color:var(--faint)">Instagram</span>
+          <b><a href="https://www.instagram.com/312wrapcompany/" target="_blank" rel="noopener">@312wrapcompany</a></b>
+          <span style="color:var(--mute)">Recent installs and progress shots</span></li>
+        <li><span class="mono" style="color:var(--faint)">Coverage</span>
+          <b>Chicagoland shop, nationwide install</b>
+          <span style="color:var(--mute)">Travel crews for fleet rollouts and show floors</span></li>
+      </ul>
+    </aside>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <a class="brand" href="#top" style="margin:0">
+      <svg viewBox="0 0 220 256" aria-hidden="true"><use href="#badge"/></svg>
+      <span><b>312 Wrap Co.</b><span class="mono">Est. Chicagoland</span></span>
+    </a>
+    <div class="stars" aria-hidden="true">
+      <svg viewBox="0 0 22 22"><use href="#star" x="0" y="0" width="22" height="22"/></svg><svg viewBox="0 0 22 22"><use href="#star" x="0" y="0" width="22" height="22"/></svg>
+      <svg viewBox="0 0 22 22"><use href="#star" x="0" y="0" width="22" height="22"/></svg><svg viewBox="0 0 22 22"><use href="#star" x="0" y="0" width="22" height="22"/></svg>
+    </div>
+    <small>&copy; 2026 312 Wrap Company &middot; 3M Preferred Installer &middot; Geek Wraps Certified</small>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var range = document.getElementById('revealRange'),
+      rect  = document.getElementById('revealRect'),
+      bar   = document.getElementById('revealBar'),
+      knob  = document.getElementById('revealKnob');
+  function paint(){
+    var v = parseFloat(range.value);
+    var x = 820 * v / 100;
+    rect.setAttribute('x', x.toFixed(1));
+    rect.setAttribute('width', (820 - x).toFixed(1));
+    bar.style.left = v + '%';
+    knob.style.left = v + '%';
+  }
+  range.addEventListener('input', paint);
+  paint();
+
+  var form = document.getElementById('quoteForm');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var d = new FormData(form), g = function(k){ return (d.get(k) || '').toString().trim(); };
+    var body = ['Name: '+g('name'),'Company: '+g('company'),'Email: '+g('email'),
+      'Phone: '+g('phone'),'Vehicle: '+g('vehicle'),'Job type: '+g('job'),'',g('details')].join('\n');
+    window.location.href = 'mailto:info@312wrapco.com'
+      + '?subject=' + encodeURIComponent('Wrap quote request - ' + (g('name') || 'website'))
+      + '&body=' + encodeURIComponent(body);
+  });
+
+  // duplicate marquee content so the -50% loop is seamless
+  var track = document.getElementById('stripTrack');
+  track.innerHTML += track.innerHTML;
+})();
+</script>
